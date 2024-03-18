@@ -1,6 +1,6 @@
 import "dart:io";
 
-void main() {
+bool main() {
 
     clear();
 
@@ -34,10 +34,11 @@ void main() {
     int exitNum = readLineAsInt("The weekday on $day-${months[int.parse(month)-1]}-2024 is \"$weekday\".\nPress 1 to restart and 0 to exit:");
     if (exitNum == 0) {
         clear();
-        exit(1);
+        return true;
     };
 
     main(); // funny recursion
+    return false;
 
 }
 

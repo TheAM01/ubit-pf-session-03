@@ -1,6 +1,6 @@
 import "dart:io";
 
-void main() {
+bool main() {
 
     clear();
 
@@ -31,7 +31,7 @@ void main() {
         int exitNum = readLineAsInt("invalid date\nEnter 1 to restart and 0 to exit:");
         if (exitNum == 0) {
             clear();
-            exit(1);
+            return true;
         }
         return main();
     }
@@ -40,11 +40,11 @@ void main() {
     int exitNum = readLineAsInt("$day-${months[month-1]}-$year is \"$weekday\".\nPress 1 to restart and 0 to exit:");
     if (exitNum == 0) {
         clear();
-        exit(1);
+        return true;
     };
 
     main(); // funny recursion
-
+    return false;
 }
 
 String readLineAsString(message) {
@@ -103,7 +103,7 @@ bool valiDate(int day, int month, int year) {
     // cant think of any more cases ¯\_(ツ)_/¯
 
     return true;
-    
+
 }
 
 void clear() {

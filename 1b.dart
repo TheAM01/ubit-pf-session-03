@@ -1,6 +1,6 @@
 import "dart:io";
 
-void main() {
+bool main() {
 
     clear();
 
@@ -26,7 +26,7 @@ void main() {
     if (day > 31 || month > 12) {
 
         int exitNum = readLine("Invalid date. Press 1 to retry, 0 to exit:");
-        if (exitNum == 0) exit(1);
+        if (exitNum == 0) return true;
 
         clear();
         return main();
@@ -34,9 +34,13 @@ void main() {
     }
 
     String weekday = findWeekDay(day, month, 2024);
+
     int exitNum = readLine("The weekday on $day-${months[month-1]}-2024 is \"$weekday\".\nPress 1 to restart and 0 to exit:");
-    if (exitNum == 0) exit(1);
+    if (exitNum == 0) return true;
+
+
     main();
+    return false;
 
 }
 
